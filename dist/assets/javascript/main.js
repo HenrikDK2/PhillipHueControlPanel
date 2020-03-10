@@ -133,6 +133,7 @@ async function changeLight(e) {
     e.target.value = light;
 
     const data = await requestJob(`lights/${light}`);
+    disco = null;
     colorPickerBtn.value = getRGBFromXY(data.state.xy[0], data.state.xy[1], data.state.bri);
     colorPickerBtn.style.backgroundColor = getRGBFromXY(data.state.xy[0], data.state.xy[1], data.state.bri);
     brightnessBtn.value = data.state.bri;
@@ -162,7 +163,7 @@ function toggleDisco() {
       const red = Math.floor(Math.random() * 256);
       const green = Math.floor(Math.random() * 256);
       const blue = Math.floor(Math.random() * 256);
-      const bri = Math.floor(Math.random() * 256);
+      const bri = Math.floor(Math.random() * 255);
       const xy = getXYFromRgb(red, green, blue);
       const hex = getHexFromRgb(`rgb(${red}, ${green}, ${blue})`);
       colorPickerBtn.style.backgroundColor = hex;
