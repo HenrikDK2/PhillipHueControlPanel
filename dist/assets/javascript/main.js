@@ -166,7 +166,6 @@ function toggleDisco() {
       const bri = Math.floor(Math.random() * 256);
       const xy = getXYFromRgb(red, green, blue);
       const hex = getHexFromRgb(`rgb(${red}, ${green}, ${blue})`);
-      discoBtn.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
       colorPickerBtn.style.backgroundColor = hex;
       brightnessBtn.value = bri;
       colorPickerBtn.value = hex;
