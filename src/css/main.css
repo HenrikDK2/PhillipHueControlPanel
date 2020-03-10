@@ -1,0 +1,12 @@
+@import "modules/introduction.css";
+@import "modules/control.css";
+
+main {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+body {
+  margin: 0;
+  padding: 0 50px;
+}

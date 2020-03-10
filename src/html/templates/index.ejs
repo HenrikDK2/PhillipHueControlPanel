@@ -1,0 +1,24 @@
+<%- include('../partials/head.ejs') %>
+<title>Kontrol Panel</title>
+<%- include('../partials/after-head.ejs') %>
+<%- include('../partials/header.ejs') %>
+<main>
+  <section class="introduction">
+    <h1 class="introduction__heading">Kontrol Panel</h1>
+    <p>Velkommen til dit Phllip Hue's kontrol panel, her kan du kontroller dens state! Vi har nogle enkelte funktioner
+      som du kan bruge for at lege lidt med din Phillip hue :)</p>
+  </section>
+
+  <section class="control">
+    <button class="onstate-btn">OFF</button>
+    <input class="jscolor" value="ab2567">
+    <div class="bri-container">
+      <h4 class="bri-container__heading">Brightness</h4>
+      <input class="bri-container__brightness" type="range" min="0" max="254">
+    </div>
+    <input type="number" value="14" class="lightSelect">
+  </section>
+  <button class="disco">Disco</button>
+</main>
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/after-body.ejs') %>

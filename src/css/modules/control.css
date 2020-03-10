@@ -1,0 +1,42 @@
+.control {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+.jscolor {
+  font-size: 1rem;
+}
+
+.onstate-btn {
+  cursor: pointer;
+  background: red;
+  border: none;
+  padding: 0.5rem 2rem;
+  min-width: 130px;
+  font-size: 2rem;
+}
+
+.onstate-btn_active {
+  background: green;
+}
+
+.bri-container__heading {
+  text-align: center;
+}
+
+.lightSelect {
+  height: 50px;
+  width: 100px;
+  font-size: 3rem;
+}
+
+.disco {
+  width: 600px;
+  height: 100px;
+  display: block;
+  margin: 50px auto 0;
+  cursor: pointer;
+  border: none;
+  font-size: 3rem;
+}
