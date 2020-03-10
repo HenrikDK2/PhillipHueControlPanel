@@ -133,7 +133,6 @@ async function changeLight(e) {
     e.target.value = light;
 
     const data = await requestJob(`lights/${light}`);
-    disco = null;
     colorPickerBtn.value = getRGBFromXY(data.state.xy[0], data.state.xy[1], data.state.bri);
     colorPickerBtn.style.backgroundColor = getRGBFromXY(data.state.xy[0], data.state.xy[1], data.state.bri);
     brightnessBtn.value = data.state.bri;
@@ -155,7 +154,6 @@ async function changeLight(e) {
 async function brightness(e) {
   requestJob(`lights/${light}/state`, "PUT", { "bri": parseInt(e.target.value) })
 }
-
 
 function toggleDisco() {
   if (disco === null) {
