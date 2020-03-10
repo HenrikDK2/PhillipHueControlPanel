@@ -129,9 +129,8 @@ async function advancedState(e) {
 
 async function changeLight(e) {
   try {
-    let value = parseFloat(e.target.value);
-    if (value < 0) { value = 0; e.target.value = value };
-    light = value;
+    light = parseFloat(e.target.value);
+    e.target.value = light;
 
     const data = await requestJob(`lights/${light}`);
     colorPickerBtn.value = getRGBFromXY(data.state.xy[0], data.state.xy[1], data.state.bri);
@@ -182,7 +181,13 @@ function toggleDisco() {
 //Initialize
 (async () => {
   try {
+    const lightsData = await requestJob("lights");
     const data = await requestJob(`lights/${light}`);
+    let max = 0;
+    for (key in lightsData) {
+      max++;
+    }
+    lightSelectBtn.setAttribute('max', max);
     brightnessBtn.value = data.state.bri;
     if (data.state.on == true) {
       btn.classList.add('onstate-btn_active');
