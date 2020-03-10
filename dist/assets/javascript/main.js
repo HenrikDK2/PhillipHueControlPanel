@@ -48,6 +48,14 @@ function getXYFromRgb(red, green, blue) {
   return new Array(x, y);
 }
 
+function getHexFromRgb(rgb) {
+  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+  return (rgb && rgb.length === 4) ? "#" +
+    ("0" + parseInt(rgb[1], 10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[2], 10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[3], 10).toString(16)).slice(-2) : '';
+}
+
 function getRGBFromXY(x, y, bri) {
   z = 1.0 - x - y;
 
@@ -157,7 +165,11 @@ function toggleDisco() {
       const blue = Math.floor(Math.random() * 256);
       const bri = Math.floor(Math.random() * 256);
       const xy = getXYFromRgb(red, green, blue);
+      const hex = getHexFromRgb(`rgb(${red}, ${green}, ${blue})`);
       discoBtn.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      colorPickerBtn.style.backgroundColor = hex;
+      brightnessBtn.value = bri;
+      colorPickerBtn.value = hex;
 
       requestJob(`lights/${light}/state`, "PUT", { "xy": xy, "bri": bri, "on": true })
     }, 100);
